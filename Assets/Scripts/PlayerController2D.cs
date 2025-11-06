@@ -32,4 +32,13 @@ public class PlayerController2D : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Boundary"))
+        {
+            Debug.Log("Игрок упал за пределы карты!");
+            Time.timeScale = 0f; // останавливаем игру
+        }
+    }
 }
